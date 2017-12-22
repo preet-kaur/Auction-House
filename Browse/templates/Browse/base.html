@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Online Auction House</title>
+{% load staticfiles %}
+<script>try{Typekit.load({ async: true });}catch(e){}</script>
+<link rel="stylesheet" href="{% static 'Browse/styledetail.css' %}">
+{% load staticfiles %}
+<link href="{% static 'homepage/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+{% load staticfiles %}
+<script src="{% static 'homepage/jquery-1.11.0.min.js' %}"></script>
+<!-- Custom Theme files -->
+{% load staticfiles %}
+<link href="{% static 'homepage/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'homepage/flexslider.css' %}" type="text/css" media="screen" />
+
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+</script>
+<meta name="keywords" content="Auction Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndriodCompatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<!--Google Fonts-->
+<link href="{% static 'homepage/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600">
+<link rel="stylesheet" href="{% static 'Browse/hero-slider-style.css' %}">
+<link rel="stylesheet" href="{% static 'Browse/magnific-popup.css' %}">
+<link rel="stylesheet" href="{% static 'Browse/templatemo-style.css' %}">
+<link rel="stylesheet" href="{% static 'Browse/Font-Awesome-4.7/css/font-awesome.min.css' %}">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+{% load staticfiles %}
+<link href="{% static 'homepage/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+{% load staticfiles %}
+<script src="{% static 'homepage/jquery-1.11.0.min.js' %}"></script>
+<!-- Custom Theme files -->
+{% load staticfiles %}
+<link href="{% static 'Browse/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'homepage/flexslider.css' %}" type="text/css" media="screen" />
+{% load staticfiles %}
+<script type="text/javascript" src="{% static 'homepage/move-top.js' %}"></script>
+{% load staticfiles %}
+<script type="text/javascript" src="{% static 'homepage/easing.js' %}"></script>
+<script type="text/javascript" src="{% static 'Browse/js/jquery-1.11.3.min.js' %}"></script>
+
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+	</script>
+</head>
+<body >
+<div class="header">
+	<div class="container">
+		<div class="header-main">
+			<div class="logo">
+				   <form class="navbar-form navbar" role="search" method="get" action="{% url 'Browse:results' %}" style="margin-top:-10px">
+					   <div class="form-group" style="float:left">
+                           <ul class="res" style="margin: 0;
+    padding: 0;
+    list-style-type: none;
+    min-width: 200px;
+    float: left;
+    display: inline;">
+
+                          <li class="fa fa-google-wallet" aria-hidden="true" style="font-size: 1.5em;color:#0ab2d;background-color:#0ab2d"><a style="color:white">  My Wallet:{{ score }}</a></li>
+							   <li style="padding-left:250px"><input type="text" class="form-control" placeholder="{{ user_name }} ,Search here" name="search" value="" required="true">
+							   <button type="submit" class="btn" style="background-color:#0ab2d2;color:black">Search</button></li>
+						   </ul>
+					   </div>
+                       <!--<li><input type="text" class="form-control" placeholder="{{ user_name }} ,Search here" name="search" value="" required="true">-->
+							   <!--<button type="submit" class="btn" style="background-color:#0ab2d2;color:black">Search</button></li>-->
+
+				   </form>
+
+			</div>
+			<div class="head-right">
+
+			  <div class="top-nav">
+									<ul class="res">
+					<li><a href="{% url 'homepage:index' %}">Home</a></li>
+					<li><a href="{% url 'Sell:upload' %}">Upload</a></li>
+                    <li><a href="{% url 'Bids:showlist' %}">My Listings</a></li>
+                    <li><a href="{% url 'Bids:showbid' %}">My Bids</a></li>
+
+                    <li>
+                        <a  href="{% url 'login:logout' %}">Logout
+                        </a>
+                    </li>
+
+                 </ul>
+              </div>
+             </div>
+         </div>
+    </div>
+</div>
+{% block body  %}
+{% endblock %}

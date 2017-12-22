@@ -1,0 +1,73 @@
+
+<head>
+	<meta charset="utf-8">
+	<title>Log In</title>
+
+	<!-- Google Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+    {% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'login/animate.css' %}">
+	<!-- Custom Stylesheet -->
+	<link rel="stylesheet" href="{% static 'login/style.css' %}">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+{% block head.title %} {{ title }} |  {% endblock head.title %}
+
+{% block content %}
+<body>
+	<div class="container">
+		<div class="login-box animated fadeInUp">
+			<div class="box-header">
+				<h2>Log In</h2>
+			</div>
+
+			<form method='POST' action='' enctype='multipart/form-data'>{% csrf_token %}
+
+                <table border="0">
+                    {{ form }}
+                   <!--<tr><th><label >Username::</label></th><td>{{ form.username }}</td></tr>
+                     <tr><th><label >Password::</label></th><td>{{ form.password }}</td></tr> -->
+                </table>
+                <input type='submit' action='what' class='btn btn-primary' value='{{ title }}' />
+            </form>
+
+            <div class="row">
+                <div class="col-md-6 ">
+                    {% if title == 'Login' %}
+                    <a href="{% url 'register:register' %}">Not registered ?</a>
+                    {% else %}
+                    <a href="/login/what/">Already registered ?</a>
+                    {% endif %}
+                </div>
+                <div class="col-md-6">
+                    <a href="{% url 'homepage:index' %}">Go Back</a>
+                </div>
+            </div>
+
+            <br><br><br><br>
+		</div>
+	</div>
+</body>
+
+<script>
+	$(document).ready(function () {
+    	$('#logo').addClass('animated fadeInDown');
+    	$("input:text:visible:first").focus();
+	});
+	$('#username').focus(function() {
+		$('label[for="username"]').addClass('selected');
+	});
+	$('#username').blur(function() {
+		$('label[for="username"]').removeClass('selected');
+	});
+	$('#password').focus(function() {
+		$('label[for="password"]').addClass('selected');
+	});
+	$('#password').blur(function() {
+		$('label[for="password"]').removeClass('selected');
+	});
+</script>
+
+
+{% endblock content %}

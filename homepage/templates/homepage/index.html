@@ -1,0 +1,218 @@
+<!--Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Online Auction House</title>
+
+{% load staticfiles %}
+<link href="{% static 'homepage/bootstrap.css' %}" rel="stylesheet" type="text/css" media="all">
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+{% load staticfiles %}
+<script src="{% static 'homepage/jquery-1.11.0.min.js' %}"></script>
+<!-- Custom Theme files -->
+{% load staticfiles %}
+<link href="{% static 'homepage/style.css' %}" rel="stylesheet" type="text/css" media="all"/>
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'homepage/flexslider.css' %}" type="text/css" media="screen" />
+
+<!-- Custom Theme files -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); }
+</script>
+<meta name="keywords" content="Auction Responsive web template, Bootstrap Web Templates, Flat Web Templates, AndriodCompatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+<!--Google Fonts-->
+<link href="{% static 'homepage/vendor/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<!-- start-smoth-scrolling -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+{% load staticfiles %}
+<script type="text/javascript" src="{% static 'homepage/move-top.js' %}"></script>
+{% load staticfiles %}
+<script type="text/javascript" src="{% static 'homepage/easing.js' %}"></script>
+	<script type="text/javascript">
+			jQuery(document).ready(function($) {
+				$(".scroll").click(function(event){		
+					event.preventDefault();
+					$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+				});
+			});
+	</script>
+</head>
+<body>
+<!-- //end-smoth-scrolling -->
+<!--header start here-->
+<div class="header" style="margin-right:-100px">
+	<div class="container">
+		<div class="header-main">
+			<div class="logo">
+				<a href="{% url 'homepage:index' %}"> <img src="{% static 'homepage/images/logo.png' %}" alt="" title=""> </a>
+			</div>
+			<div class="head-right">
+			  <div class="top-nav">
+					<span class="menu"> <img src="{% static 'homepage/images/icon.png' %}" alt=""/></span>
+				<ul class="res">
+					<li><a class="{% if active %}active {% else %} {% endif %}" href="{% url 'homepage:index' %}">Home</a></li>
+					<li><a href="#about">About Us</a></li>
+                    <li><a  href="{% url 'Browse:show' %}">Browse</a></li>
+					<li><a href="{% url 'login:login' %}">Login</a></li>
+
+				<div class="clearfix"> </div>
+				</ul>
+
+			 </div>
+
+
+		</div>
+		
+		<div class="clearfix"> </div>
+		</div>
+	</div>
+</div>
+<!--header end here-->
+<!--banner strip start here-->
+<script src="{% static 'homepage/responsiveslides.min.js' %}"></script>
+<script>
+    $(function () {
+      $("#slider").responsiveSlides({
+      	auto: true,
+      	speed: 500,
+        namespace: "callbacks",
+        pager: false,
+        nav:true,
+      });
+    });
+  </script>
+
+<div class="banner1" style="margin-top:0%;">
+	<div class="container">
+		<div class="banner-main">
+			<ul class="rslides callbacks callbacks1" id="slider">
+	        <li>
+	  			<h3>The Best Place To Buy and Sell</h3>
+				<div class="bann-btn">
+					  <a href="{% url 'register:register' %}" class="hvr-shutter-out-horizontal">Register</a>
+               </div>
+	        </li>
+	        <li id="callbacks1_s1" class="callbacks1_on" style="float: left; position: relative; opacity: 1; z-index: 2; display: list-item; transition: opacity 500ms ease-in-out;">
+	  			<h3>Get your hands on whatever you fancy</h3>
+				<p>But this denouncing pleasure and praising</p>
+				<div class="bann-btn">
+					  <a href="{% url 'register:register' %}" class="hvr-shutter-out-horizontal">Register</a>
+               </div>
+	        </li>
+	        <li id="callbacks1_s2" class="" style="float: none; position: absolute; opacity: 0; z-index: 1; display: list-item; transition: opacity 500ms ease-in-out;">
+	        	<h3>Simple procedure, no hassle</h3>
+				<div class="bann-btn">
+					  <a href="{% url 'register:register' %}" class="hvr-shutter-out-horizontal">Register</a>
+               </div>
+	        </li>
+	      </ul>
+			<a href="#" class="callbacks_nav callbacks1_nav prev">Previous</a>
+			<a href="#" class="callbacks_nav callbacks1_nav next">Next</a>
+		</div>
+	</div>
+</div>
+<div id="about">
+		<div class="container">
+			<div class="about-main">
+				<div class="about-top">
+					<h3><strong>A Few Words About Us</strong></h3>
+					<h5>This is an online platform dedicated towards creating an auction house experience right at your home. Register, login and quickly find a variety of items to buy and sell at the tip of your fingers! </h5>
+				</div>
+				<div class="about-text">
+					<h3><strong>Top Categories</strong></h3>
+					<div class="col-md-4 about-text-left">
+						<img src="{% static 'homepage/images/art1.jpg' %}" alt="">
+						<h3>Art</h3>
+						<p>Rated as the best art provider in city of Mumbai.</p>
+					</div>
+					<div class="col-md-4 about-text-left">
+						<img src="{% static 'homepage/images/clothes.jpg' %}" alt="">
+						<h3>Apparel</h3>
+						<p>A wide range of clothing accessories including everything from western to indian traditionals.</p>
+					</div>
+					<div class="col-md-4 about-text-left">
+						<img src="{% static 'homepage/images/antique.jpg' %}" alt="">
+						<h3>Antique</h3>
+						<p>Appreciate the value of historical artifacts and cherish hand picked antiques.</p>
+					</div>
+
+					<div class="clearfix"> </div>
+				</div>
+
+				<div class="about-text">
+
+					<div class="col-md-4 about-text-left">
+						<img src="{% static 'homepage/images/jewellery.jpg' %}" alt="">
+						<h3>Jewellery</h3>
+						<p>Rated as the best art provider in city of Mumbai.</p>
+					</div>
+					<div class="col-md-4 about-text-left">
+						<img src="{% static 'homepage/images/music.jpg' %}" alt="">
+						<h3>Musical Instrument</h3>
+						<p>The go to place for exotic musical instruments.</p>
+					</div>
+					<div class="col-md-4 about-text-left">
+						<img src="{% static 'homepage/images/collec.jpg' %}" alt="">
+						<h3>Collectible</h3>
+						<p>Indulge in your collector's passion and enhance your collections with amazing additions.</p>
+					</div>
+
+					<div class="clearfix"> </div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<div class="procedure">
+<div class="container">
+            <h2><strong>How it works</strong></h2>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6 maxheight3" style="height: 357px;"><div class="box_inner">
+                    <div class="box">
+                        <div class="badge fa fa-user " style="font-size: 80px;line-height: 190px;font-family: 'FontAwesome';
+    display: block;"></div>
+                        <strong>Register</strong>
+                        <p>Register yourself and start shopping</p>
+                    </div>
+                </div></div>
+                <div class="col-lg-3 col-md-6 col-sm-6 maxheight3" style="height: 357px;"><div class="box_inner">
+                    <div class="box">
+                        <div class="badge fa fa-money" style="font-size: 80px;line-height: 190px;font-family: 'FontAwesome';
+    display: block;"></div>
+                        <strong>Buy or Bid</strong>
+                        <p>You Can Buy or Bid any item at a reasonable price</p>
+                    </div>
+                </div></div>
+                <div class="col-lg-3 col-md-6 col-sm-6 maxheight3" style="height: 357px;"><div class="box_inner">
+                    <div class="box">
+                        <div class="badge fa fa-gavel" style="font-size: 80px;line-height: 190px;font-family: 'FontAwesome';
+    display: block;"></div>
+                        <strong>Submit a Bid</strong>
+                        <p>Submit your bid and wait for the result.</p>
+                    </div>
+                </div></div>
+                <div class="col-lg-3 col-md-6 col-sm-6 maxheight3" style="height: 357px;"><div class="box_inner">
+                    <div class="box">
+                        <div class="badge fa fa-trophy" style="font-size: 80px;line-height: 190px;font-family: 'FontAwesome';
+    display: block;"></div>
+                        <strong>Win</strong>
+                        <p>If you win,you will receive a notification.Item will be delievered within 8-10 working days.</p>
+                    </div>
+                </div></div>
+            </div>
+        </div>
+        </div>
+
+</body>
+</html>

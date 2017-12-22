@@ -1,0 +1,71 @@
+{% extends 'Browse/base.html' %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'Bids/styledetail.css' %}">
+{% block item_active %}active{% endblock %}
+{% block body  %}
+
+{% if cur_item %}
+
+    <div id="wrapper" style="padding-top: 50px">
+      <div id="container" style="height:300px">
+
+        <div id="info">
+          <div>
+            <img id="product" src="{{ cur_item.item_logo.url }}" style="max-width:100%;smax-height:100%;">
+          </div>
+
+          <div id="price">
+            <h2>{{cur_item.item_name}}</h2>
+            <h2>$ {{cur_item.min_price}}</h2>
+
+          </div>
+          </div>
+
+
+        <div id="payment" style="padding:0px">
+
+          <!--<form id="checkout" action="{% url 'Browse:update' cur_item.item_id %}" method="POST">
+            {% csrf_token %}
+            <!--<input class="card" id="visa" type="button" name="card" value="">
+            <input class="card" id="mastercard" type="button" name="card" value="">-->
+
+            <label>Created on : {{cur_item.created_on}}</label>
+            <!--<input id="cardnumber" type=text  name="cardnumber"  value="{{cur_item.created_on}}">-->
+
+            <label>Seller: {{cur_item.seller}}</label>
+           <!--<input id="cardholder" type="text" name="name"  maxlength="50" value="{{cur_item.seller}}">-->
+
+            <label>Current highest bidder:  {{cur_item.cur_highest_bidder}}</label>
+           <!--<input id="cardholder" type="text" name="name"  maxlength="50" value="{{cur_item.cur_highest_bidder}}">-->
+
+            <label>Current highest bid : {{cur_item.cur_highest_bid}}</label>
+           <!--<input id="cardholder" type="text" name="name"  maxlength="50" value="{{cur_item.cur_highest_bid}}">-->
+
+            <label>Buy Now : {{cur_item.buy_now_price}}</label>
+           <!--<input id="cardholder" type="text" name="name"  maxlength="50" value="{{cur_item.buy_now_price}}">-->
+
+            <label>Expiration Date :  {{ cur_item.expiration }}</label>
+            <!--<input id="cardholder" type="text" name="name"  maxlength="50" value="{{ cur_item.expiration }}">-->
+
+             <!--<label>Enter your bid</label>
+              <input type="text" name="bid_value">
+             <button type="submit" class="btn">Submit Bid</button>-->
+           <!--</form>-->
+        </div>
+
+        </div>
+      </div>
+    {% if messages %}
+        <script>
+
+                {% for message in messages %}
+                  alert("{{ message }}")
+                {% endfor %}
+
+        </script>
+    {% endif %}
+{% else %}
+    <h1>YOU DON'T HAVE ANY ITEMS</h1>
+{% endif %}
+{% endblock %}
+

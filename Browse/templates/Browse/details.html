@@ -1,0 +1,73 @@
+{% extends 'Browse/base.html' %}
+{% load staticfiles %}
+<link rel="stylesheet" href="{% static 'Browse/styledetail.css' %}">
+{% block item_active %}active{% endblock %}
+{% block body  %}
+
+{% if cur_item %}
+
+    <div id="wrapper" style="padding-top: 20px">
+      <div id="container" style=" height: 80%; width: 80% ">
+
+        <div id="info">
+          <div id="product-img">
+            <img id="product" src="{{ cur_item.item_logo.url }}" style="max-width:100%;max-height:480px; margin-left:50px; margin-top:50px;">
+          </div>
+
+          <div id="price">
+            <h2>{{cur_item.item_name}}</h2>
+            <h2>$ {{cur_item.min_price}}</h2>
+
+          </div>
+        </div>
+
+
+        <div id="payment" style="padding:0px">
+
+          <form id="checkout" action="{% url 'Browse:update' cur_item.item_id %}" method="POST">
+            {% csrf_token %}
+            <!--<input class="card" id="visa" type="button" name="card" value="">
+            <input class="card" id="mastercard" type="button" name="card" value="">-->
+
+            <label>Created on</label>
+            <input id="cardnumber" type="text"  name="cardname" maxlength="50" value="{{cur_item.created_on}}" readonly>
+            <div ></div>
+            <label>Seller &nbsp &nbsp</label>
+           <input id="cardholder" type="text" name="name"  maxlength="50" value="{{cur_item.seller}}" readonly>
+            <label>Min Price</label>
+           <input id="cardholder3" type="text" name="name"  maxlength="50" value="{{cur_item.min_price}}" readonly>
+
+            <label>Current highest bidder</label>
+           <input id="cardholder1" type="text" name="name"  maxlength="50" value="{{cur_item.cur_highest_bidder}}" readonly>
+
+            <label>Current highest bid</label>
+           <input id="cardholder2" type="text" name="name"  maxlength="50" value="{{cur_item.cur_highest_bid}}" readonly>
+
+            <label>Buy Now</label>
+           <input id="cardholder3" type="text" name="name"  maxlength="50" value="{{cur_item.buy_now_price}}" readonly>
+
+            <label>Expiration Date</label>
+            <input id="cardholder4" type="text" name="name"  maxlength="50" value="{{ cur_item.expiration }}" readonly>
+
+             <label>Enter your bid</label>
+              <input id = "bid" type="text" name="bid_value">
+             <button type="submit" class="btn" align="center">Submit Bid</button>
+           </form>
+        </div>
+
+        </div>
+      </div>
+    {% if messages %}
+        <script>
+
+                {% for message in messages %}
+                  alert("{{ message }}")
+                {% endfor %}
+
+        </script>
+    {% endif %}
+{% else %}
+    <h1>YOU DON'T HAVE ANY ITEMS</h1>
+{% endif %}
+{% endblock %}
+

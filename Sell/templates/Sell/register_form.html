@@ -1,0 +1,67 @@
+
+
+
+<head>
+	<meta charset="utf-8">
+	<title>Upload</title>
+
+	<!-- Google Fonts -->
+	<link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700|Lato:400,100,300,700,900' rel='stylesheet' type='text/css'>
+    {% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'Sell/animate.css' %}">
+	<!-- Custom Stylesheet -->
+    {% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'Sell/style.css' %}">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+{% block head.title %} {{ title }} |  {% endblock head.title %}
+
+{% block content %}
+<body>
+	<div class="container">
+		<div class="login-box animated fadeInUp">
+			<div class="box-header">
+				<h2>Upload Item</h2>
+			</div>
+
+			<form method='POST' action='' enctype='multipart/form-data'>{% csrf_token %}
+
+                <table border="0">
+                    {% csrf_token %}
+                        {% include 'Sell/from-template.html' %}
+                </table>
+                <input type='submit' action='' class='btn btn-primary' value='Upload' />
+            </form>
+
+            <div class="row">
+                <div class="col-md-6 ">
+                    <a href="{% url 'Browse:show' %}">Go Back</a>
+                </div>
+            </div>
+            <br>
+		</div>
+	</div>
+</body>
+
+<script>
+	$(document).ready(function () {
+    	$('#logo').addClass('animated fadeInDown');
+    	$("input:text:visible:first").focus();
+	});
+	$('#username').focus(function() {
+		$('label[for="username"]').addClass('selected');
+	});
+	$('#username').blur(function() {
+		$('label[for="username"]').removeClass('selected');
+	});
+	$('#password').focus(function() {
+		$('label[for="password"]').addClass('selected');
+	});
+	$('#password').blur(function() {
+		$('label[for="password"]').removeClass('selected');
+	});
+</script>
+
+
+{% endblock content %}
